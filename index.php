@@ -8,7 +8,11 @@ $app->config('debug', true);
 
 $app->get('/', function() {
     
-	echo "OK";
+	$sql = new Hcode\DB\sql();
+
+	$results = $sql->select("SELECT * FROM tb_users WHERE iduser = 1");
+
+	echo json_encode($results);
 
 });
 
